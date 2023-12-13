@@ -1,0 +1,568 @@
+======Dashbaord=======
+
+=> Notice  ✔
+=> society member addition (addition done by only chairmain)  ✔
+=> Maintance  ✔
+=> Events   ✔
+=> Complaints (feedback)
+=> splash screen   ✔
+=> 2 types of login  ✔
+-chairman   ✔              
+-society members 
+
+
+
+/*
+
+
+import 'package:digitalsociety/signup.dart';
+import 'package:flutter/material.dart';
+
+class ChairmenPage extends StatefulWidget {
+  const ChairmenPage({super.key});
+
+  @override
+  State<ChairmenPage> createState() => _ChairmenPageState();
+}
+
+class _ChairmenPageState extends State<ChairmenPage> {
+  _openAddComplaintBottomsheet() {
+    showModalBottomSheet(
+        isScrollControlled: true,
+        context: context,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+        ),
+        builder: (BuildContext context) {
+          shape:
+          RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30), topRight: Radius.circular(30)));
+          return Container(
+            height: 600,
+            padding: EdgeInsets.all(16),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  child: Image.asset("lib/images/021.png"),
+                  height: 130,
+                ),
+                Container(
+                    height: 70,
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey, width: 1),
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: TextField(
+                        style: TextStyle(fontSize: 18),
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            labelText: 'Title',
+                            labelStyle: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                            )),
+                      ),
+                    )),
+                SizedBox(height: 10),
+                Container(
+                    height: 70,
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey, width: 1),
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: TextField(
+                        style: TextStyle(fontSize: 18),
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            labelText: 'Add Notice',
+                            labelStyle: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                            )),
+                      ),
+                    )),
+              ],
+            ),
+          );
+        });
+  }
+
+  _openAddmemberBottomsheet() {
+    showModalBottomSheet(
+        isScrollControlled: true,
+        context: context,
+        backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30), topRight: Radius.circular(30))),
+        builder: (BuildContext context) {
+          return Container(
+              color: Colors.transparent,
+              height: 600,
+              padding: EdgeInsets.all(16),
+              child: ClipRRect(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+                  child: Container(
+                    height: 600,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          child: Image.asset("lib/images/020.jpg"),
+                          height: 100,
+                        ),
+                        Container(
+                            height: 70,
+                            decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black, width: 1),
+                                borderRadius: BorderRadius.circular(20)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8),
+                              child: TextField(
+                                style: TextStyle(fontSize: 18),
+                                decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    labelText: 'Resident Name',
+                                    labelStyle: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 20,
+                                    )),
+                              ),
+                            )),
+                        SizedBox(height: 10),
+                        Container(
+                            height: 70,
+                            decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black, width: 1),
+                                borderRadius: BorderRadius.circular(20)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8),
+                              child: TextField(
+                                style: TextStyle(fontSize: 18),
+                                decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    labelText: 'House No. & Block',
+                                    labelStyle: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 20,
+                                    )),
+                              ),
+                            )),
+                        SizedBox(height: 10),
+                        Container(
+                            height: 70,
+                            decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black, width: 1),
+                                borderRadius: BorderRadius.circular(20)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8),
+                              child: TextField(
+                                style: TextStyle(fontSize: 18),
+                                decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    labelText: 'Phone Number',
+                                    labelStyle: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 20,
+                                    )),
+                              ),
+                            )),
+                      ],
+                    ),
+                  )));
+        });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var Size = MediaQuery.of(context).size;
+    return SafeArea(
+      child: Scaffold(
+          backgroundColor: Colors.grey,
+          body: Stack(
+            children: <Widget>[
+              Container(
+                height: Size.height * 0.97,
+                decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 184, 241, 245),
+                    image: DecorationImage(
+                      image: AssetImage(
+                        "lib/images/017.jpg",
+                      ),
+                      fit: BoxFit.cover,
+                    )),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 3, left: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Welcome Chairman",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 30,
+                          fontWeight: FontWeight.w900),
+                    ),
+                    SizedBox(
+                      width: 60,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignupAccount()));
+                      },
+                      child: Icon(
+                        Icons.login_rounded,
+                        size: 40,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 80, left: 15, right: 15),
+                child: Container(
+                  height: 280,
+                  width: 500,
+                  decoration: BoxDecoration(
+                    color: Colors.amberAccent,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                          offset: Offset(0, 17),
+                          blurRadius: 17,
+                          spreadRadius: -18)
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Padding(padding: EdgeInsets.only(top: 10)),
+                      Text(
+                        "Society Notice",
+                        style: TextStyle(
+                            fontSize: 28,
+                            fontStyle: FontStyle.italic,
+                            fontWeight: FontWeight.w700),
+                      ),
+                      Padding(padding: EdgeInsets.only(top: 5)),
+                      Text(
+                        "(Parth Avenue)",
+                        style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w400),
+                      ),
+                      Container(
+                        height: 180,
+                        child: ListView.builder(
+                          itemCount: 01,
+                          itemBuilder: (context, index) {
+                            return Column(
+                              children: [
+                                Container(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                          padding: EdgeInsets.only(
+                                              top: 30, left: 10)),
+                                      Text(
+                                        "- Meeting at Saturday",
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                          padding: EdgeInsets.only(
+                                              top: 30, left: 10)),
+                                      Text(
+                                        "- Maintanance collection at 5th",
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                          padding: EdgeInsets.only(
+                                              top: 30, left: 10)),
+                                      Text(
+                                        "- Next Event planning",
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                          padding: EdgeInsets.only(
+                                              top: 30, left: 10)),
+                                      Text(
+                                        "- B.M.C Pest Control Activity at 9th",
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                          padding: EdgeInsets.only(
+                                              top: 30, left: 10)),
+                                      Text(
+                                        "- D wing Lift is Under Maintanace",
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              top: 20,
+                            ),
+                          ),
+                          Container(
+                            height: 31,
+                            width: 125,
+                            decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: [
+                                BoxShadow(
+                                    offset: Offset(0, 17),
+                                    blurRadius: 17,
+                                    spreadRadius: -18)
+                              ],
+                            ),
+                            child: Row(
+                              children: [
+                                TextButton(
+                                  onPressed: () {
+                                    _openAddComplaintBottomsheet();
+                                  },
+                                  child: Text(
+                                    "➕  Add Notice",
+                                    style: TextStyle(
+                                        fontSize: 15, color: Colors.white),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                  padding: const EdgeInsets.only(top: 380, left: 15, right: 15),
+                  child: Container(
+                    height: 100,
+                    width: 170,
+                    child: Column(children: [
+                      Padding(padding: EdgeInsets.only(top: 30)),
+                      Text(
+                        "💵 Funds 💵",
+                        style: TextStyle(
+                            fontSize: 25,
+                            // fontStyle: FontStyle.italic,
+                            fontWeight: FontWeight.w700),
+                      ),
+                      Padding(padding: EdgeInsets.only(top: 10)),
+                      Text(
+                        "(₹ 4,50,000)",
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w400),
+                      )
+                    ]),
+                    decoration: BoxDecoration(
+                      color: Colors.amberAccent,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                            offset: Offset(0, 17),
+                            blurRadius: 17,
+                            spreadRadius: -18)
+                      ],
+                    ),
+                  )),
+              Padding(
+                  padding:
+                      const EdgeInsets.only(top: 380, left: 200, right: 15),
+                  child: Container(
+                    height: 100,
+                    width: 170,
+                    child: Column(children: [
+                      Padding(padding: EdgeInsets.only(top: 30)),
+                      Text(
+                        "🎉 Events 🎉",
+                        style: TextStyle(
+                            fontSize: 25,
+                            //  fontStyle: FontStyle.italic,
+                            fontWeight: FontWeight.w700),
+                      ),
+                      Padding(padding: EdgeInsets.only(top: 10)),
+                      Text(
+                        "(Planning)",
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w400),
+                      )
+                    ]),
+                    decoration: BoxDecoration(
+                      color: Colors.amberAccent,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                            offset: Offset(0, 17),
+                            blurRadius: 17,
+                            spreadRadius: -18)
+                      ],
+                    ),
+                  )),
+              Padding(
+                  padding: const EdgeInsets.only(top: 490, left: 15, right: 15),
+                  child: Container(
+                    height: 60,
+                    width: 500,
+                    child: Column(children: [
+                      Padding(padding: EdgeInsets.only(top: 10)),
+                      Text(
+                        "💬 Members Feedback 💬",
+                        style: TextStyle(
+                            fontSize: 25,
+                            //fontStyle: FontStyle.italic,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w700),
+                      ),
+                    ]),
+                    decoration: BoxDecoration(
+                      color: Colors.amberAccent,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                            offset: Offset(0, 17),
+                            blurRadius: 17,
+                            spreadRadius: -18)
+                      ],
+                    ),
+                  )),
+              Padding(
+                  padding: const EdgeInsets.only(top: 565, left: 15, right: 15),
+                  child: Container(
+                    height: 60,
+                    width: 500,
+                    child: Column(children: [
+                      Padding(padding: EdgeInsets.only(top: 10)),
+                      Text(
+                        "⚠️ Society Complains ⚠️",
+                        style: TextStyle(
+                            fontSize: 25,
+                            //fontStyle: FontStyle.italic,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w700),
+                      ),
+                    ]),
+                    decoration: BoxDecoration(
+                      color: Colors.amberAccent,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                            offset: Offset(0, 17),
+                            blurRadius: 17,
+                            spreadRadius: -18)
+                      ],
+                    ),
+                  )),
+              Padding(
+                  padding: const EdgeInsets.only(top: 640, left: 125),
+                  child: Container(
+                    height: 60,
+                    width: 150,
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Padding(padding: EdgeInsets.only(top: 8)),
+                          TextButton(
+                            onPressed: _openAddmemberBottomsheet,
+                            child: Text(
+                              "➕ Add Members",
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  // fontStyle: FontStyle.italic,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                          ),
+                        ]),
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                            offset: Offset(0, 17),
+                            blurRadius: 17,
+                            spreadRadius: -18)
+                      ],
+                    ),
+                  )),
+            ],
+          )),
+    );
+  }
+}
+
+
+
+*/
